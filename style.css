@@ -13,6 +13,12 @@
     --glass-bg: rgba(255, 255, 255, 0.03);
 }
 
+/* Fix Overflow Issue Globally */
+section {
+    overflow: hidden;
+    position: relative;
+}
+
 /* Base Setup */
 * {
     cursor: none;
@@ -343,77 +349,117 @@ footer {
     .hero-title {
         font-size: 3.5rem;
     }
-    
+
     .hero-wrapper {
-        padding-top: 120px;
+        padding-top: 100px;
+        /* Reduced from 120px */
         height: auto;
         min-height: 100vh;
-        padding-bottom: 80px;
+        padding-bottom: 60px;
     }
 
+    /* Adjust cards for tablet */
     .card-1 {
-        left: -20px;
-        bottom: 20px;
+        left: 0;
+        bottom: 30px;
     }
 
     .card-2 {
-        right: -10px;
+        right: 0;
+        top: 30px;
     }
 }
 
 @media (max-width: 768px) {
+
     /* Reset Cursor for Touch */
-    .cursor-dot, .cursor-outline {
+    .cursor-dot,
+    .cursor-outline {
         display: none !important;
     }
+
     * {
         cursor: auto !important;
     }
 
-    /* General */
+    /* General Typography */
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
     .section-padding {
-        padding: 60px 0 !important;
+        padding: 50px 0 !important;
     }
 
     /* Hero Section */
+    .hero-content {
+        text-align: center;
+        padding-top: 2rem;
+    }
+
     .hero-title {
         font-size: 2.8rem;
-    }
-    
-    .hero-subtitle {
-        font-size: 1rem;
         margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+        border-left: none;
+        /* Remove border for center alignment */
+        border-bottom: 2px solid var(--gold-primary);
+        /* Add bottom border instead */
+        padding-left: 0;
+        padding-bottom: 5px;
+        display: inline-block;
     }
 
     .hero-content .d-flex {
         flex-direction: column;
         width: 100%;
+        gap: 15px !important;
     }
 
     .hero-content .btn {
         width: 100%;
-        text-align: center;
         display: block;
-        margin-bottom: 10px;
+        margin: 0;
+        padding: 15px;
     }
-    
+
     .profile-floating {
-        margin-top: 60px;
+        margin-top: 50px;
+        padding-bottom: 20px;
     }
-    
+
+    .profile-main-img {
+        max-width: 100% !important;
+        width: 80%;
+    }
+
+    /* Floating Cards Mobile - clean grid look */
     .floating-card {
-        padding: 1rem;
-        min-width: 160px; 
+        position: static;
+        width: 100%;
+        margin: 10px 0;
+        animation: none;
+        transform: translateY(0);
+        background: rgba(20, 20, 20, 0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
     }
-    
-    .card-1 {
-        left: 0;
-        bottom: -20px;
-    }
-    
+
+    .card-1,
     .card-2 {
-        right: 0;
-        top: 20px;
+        display: block;
+        /* Ensure visibility */
     }
 
     /* Bento Grid */
@@ -429,7 +475,7 @@ footer {
 
     /* Stats */
     .stat-number {
-        font-size: 2.5rem;
+        font-size: 2.2rem;
     }
 
     /* Timeline */
@@ -452,31 +498,32 @@ footer {
         text-align: center !important;
         margin-top: 20px;
     }
-    
+
     .d-flex.align-items-center {
         justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
-   .hero-title {
+    .hero-title {
         font-size: 2.2rem;
     }
-    
-    .floating-card {
-        position: static;
+
+    .hero-subtitle {
+        font-size: 0.85rem;
+    }
+
+    .profile-main-img {
         width: 100%;
-        margin: 15px 0;
-        animation: none;
-        transform: none !important;
+        /* Full width on small screens */
     }
-    
-    .profile-floating {
-        display: flex;
-        flex-direction: column;
-    }
-    
+
     .hero-bg {
-        background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.15), transparent 70%);
+        background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.1), transparent 80%);
+    }
+
+    /* Bento Items Compact */
+    .bento-item {
+        padding: 20px;
     }
 }

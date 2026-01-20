@@ -126,11 +126,13 @@ body:hover .cursor-outline {
 /* Hero Section */
 .hero-wrapper {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     display: flex;
     align-items: center;
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 140px;
+    padding-bottom: 60px;
 }
 
 .hero-bg {
@@ -351,8 +353,8 @@ footer {
     }
 
     .hero-wrapper {
-        padding-top: 100px;
-        /* Reduced from 120px */
+        padding-top: 140px;
+        /* Updated to prevent overlapping */
         height: auto;
         min-height: 100vh;
         padding-bottom: 60px;
